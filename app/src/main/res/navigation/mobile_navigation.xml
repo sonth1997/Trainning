@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/firstFragment">
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.trainning.first.FirstFragment"
+        android:label="fragment_first_screen"
+        tools:layout="@layout/fragment_first_screen" >
+        <action
+            android:id="@+id/action_firstFragment_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_firstFragment_to_registerUserFragment"
+            app:destination="@id/registerUserFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_registerChildFragment"
+            app:destination="@id/registerChildFragment" />
+        <action
+            android:id="@+id/action_registerUserFragment_to_registerChildFragment"
+            app:destination="@id/registerChildFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.trainning.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_main"
+            app:destination="@id/main" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerUserFragment"
+        android:name="com.example.trainning.register.user.RegisterUserFragment"
+        android:label="fragment_register_user"
+        tools:layout="@layout/fragment_register_user">
+        <action
+            android:id="@+id/action_registerUserFragment_to_registerChildFragment"
+            app:destination="@id/registerChildFragment"/>
+        <action
+            android:id="@+id/action_registerUserFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/main"
+        android:name="com.example.trainning.main.MainHomeFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_main_to_oneFragment"
+            app:destination="@id/oneFragment" />
+        <action
+            android:id="@+id/action_main_to_twoFragment"
+            app:destination="@id/twoFragment" />
+        <action
+            android:id="@+id/action_main_to_threeFragment"
+            app:destination="@id/threeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerChildFragment"
+        android:name="com.example.trainning.register.child.RegisterChildFragment"
+        android:label="fragment_register_child"
+        tools:layout="@layout/fragment_register_child" >
+        <action
+            android:id="@+id/action_registerChildFragment_to_main"
+            app:destination="@id/main" />
+        <action android:id="@+id/toSetupChildDetailFragment"
+            app:destination="@+id/setupChildDetailFragment"/>
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="number"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/setupChildDetailFragment"
+        android:name="com.example.trainning.register.child.RegisterChildDetailFragment"
+        tools:layout="@layout/item_register_child">
+        <action
+            android:id="@+id/action_setupChildDetailFragment_to_registerChildFragment"
+            app:destination="@id/registerChildFragment" />
+        <argument
+            android:name="sick"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_setupChildDetailFragment_to_main"
+            app:destination="@id/main" />
+    </fragment>
+    <fragment
+        android:id="@+id/oneFragment"
+        android:name="com.example.trainning.main.OneFragment"
+        android:label="fragment_one"
+        tools:layout="@layout/fragment_one" />
+    <fragment
+        android:id="@+id/threeFragment"
+        android:name="com.example.trainning.main.ThreeFragment"
+        android:label="fragment_three"
+        tools:layout="@layout/fragment_three" />
+    <fragment
+        android:id="@+id/twoFragment"
+        android:name="com.example.trainning.main.TwoFragment"
+        android:label="fragment_two"
+        tools:layout="@layout/fragment_two" />
+</navigation>
